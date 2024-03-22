@@ -1,0 +1,26 @@
+# A form for setting up an interactive quiz
+#
+#
+
+@prefix : <#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix ui: <http://www.w3.org/ns/ui#> .
+@prefix schema: <http://schema.org/'>.
+
+
+:QuizForm a ui:Group; dct:title "QuizForm form";
+    ui:parts (:AnswerValue, :AnswerRight)
+
+
+
+:AnswerForm a ui:Group; dct:title "Answer form";
+    ui:parts (:AnswerValue, :AnswerRight)
+
+    :AnswerRight a ui:TextField;
+    ui:property schema:value;
+    ui:label "Possible Answer" .
+
+    :AnswerRight a ui:BooleanForm;
+    ui:property schema:CorrectAnswer;
+    ui:label "Right Answer?" .
+
