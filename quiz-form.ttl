@@ -9,9 +9,10 @@
 
 
 :QuizForm a ui:Group; dct:title "QuizForm form";
-    ui:parts (:AnswerValue, :AnswerRight)
+    ui:parts (:AnswerTitle :AnswerComment :Questions) .
 
-
+:Questions a ui:Muliple;
+    ui:subForm :AnswerForm s.
 
 :AnswerForm a ui:Group; dct:title "Answer form";
     ui:parts (:AnswerValue, :AnswerRight)
@@ -24,3 +25,4 @@
     ui:property schema:CorrectAnswer;
     ui:label "Right Answer?" .
 
+# end of quiz form turtle
