@@ -20,10 +20,10 @@ const formText = `
 ` // formText
 $rdf.parse(formText, store, form.doc().uri, 'text/turtle') // Load  directly
 
-async function listener(event) {
-  const main3 = document.getElementById('main')
-  main3.style.backgroundColor = 'yellow'
-  UI.widgets.appendForm(dom, main3, {}, quiz, form, quiz.doc())
+async function onContentLoaded(event) {
+  const mainElement = documentObject.getElementById('main');
+  mainElement.style.backgroundColor = 'yellow'
+  UI.widgets.appendForm(dom, main3, {}, quiz, form, quizDoc)
 }
 /* like 
 dom,
@@ -34,5 +34,5 @@ dom,
   subject.doc(),
   complainIfBad
 */
-document.addEventListener('DOMContentLoaded', listener, true)
+document.addEventListener('DOMContentLoaded', onContentLoaded, true)
 
