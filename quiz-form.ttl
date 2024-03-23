@@ -3,21 +3,32 @@
 #
 
 @prefix : <#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 @prefix dct: <http://purl.org/dc/terms/>.
 @prefix ui: <http://www.w3.org/ns/ui#> .
 @prefix schema: <http://schema.org/'>.
 
+# See https://github.com/SolidOS/solid-ui/blob/main/Documentation/FormsReadme.md
 
-:QuizForm a ui:Group; dct:title "QuizForm form";
-    ui:parts (:AnswerTitle :AnswerComment :Questions) .
 
-:Questions a ui:Muliple;
-    ui:subForm :AnswerForm s.
+:QuizForm a ui:Group; dct:title "Quiz Form";
+    ui:parts (:QuizTitle :QuizComment :Questions) .
+
+    :QuizTitle a ui:SingleLineTextField;
+        ui:property dct:title; ui:label "Title" .
+
+    :QuizComment a ui:MultiLineTextField;
+        ui:property rdfs:comment; ui:label "Note" .
+
+:Questions a ui:Multiple;
+    ui:label "Questions";
+    ui:property schema:question; # @@
+    ui:part :AnswerForm .
 
 :AnswerForm a ui:Group; dct:title "Answer form";
-    ui:parts (:AnswerValue, :AnswerRight)
+    ui:parts (:AnswerValue :AnswerRight) .
 
-    :AnswerRight a ui:TextField;
+    :AnswerValue a ui:SingleLineTextField;
     ui:property schema:value;
     ui:label "Possible Answer" .
 
