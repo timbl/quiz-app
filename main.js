@@ -16,11 +16,11 @@ store.fetcher.load(quiz).then(
 $rdf.parse(formText, store, form.doc().uri, 'text/turtle') // Load  directly
 
 async function listener(event) {
-  await store.fetcher.load(quiz.doc())
-  console.log(' editable?', store.updater.editable(quiz.doc()))
+  await store.fetcher.load(quizDoc)
+  console.log(' editable?', store.updater.editable(quizDoc))
   const main3 = document.getElementById('main')
   // main3.style.backgroundColor = 'yellow'
-  UI.widgets.appendForm(dom, main3, {}, quiz, form, quiz.doc())
+  UI.widgets.appendForm(dom, main3, {}, quiz, form, quizDoc)
 }
 /* like 
 dom,
